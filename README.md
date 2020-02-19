@@ -1,2 +1,2 @@
 # repository-search-app
-Front Coding Challenge
+Front-end Coding Challenge
