@@ -9,7 +9,7 @@ import { RepositoryService } from 'src/app/services/repository.service';
 })
 export class RepositorySearchComponent implements OnInit {
   public repositoryItems: RepositoryModel[] = [];
-
+public searchCriteria: string
   public selectedRepo: string;
 
   constructor(private repositoryService: RepositoryService) { }
@@ -18,8 +18,8 @@ export class RepositorySearchComponent implements OnInit {
     this.repositoryItems = this.repositoryService.repositoryItems;
   }
 
-  public search(criteria: string){
-    this.repositoryService.search(criteria);
+  public search(){
+    this.repositoryService.search(this.searchCriteria);
     this.repositoryItems = this.repositoryService.repositoryItems;
   }
 

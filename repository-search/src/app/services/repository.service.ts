@@ -15,8 +15,7 @@ export class RepositoryService {
 
   }
   public search(criteria: string): void {
-
-     this.httpClient.get<RepositoryModel[]>(`${environment.apiUrl}/search/repositories?q=${criteria}`).subscribe((list) => {
+      this.httpClient.get<RepositoryModel[]>(`${environment.apiUrl}/search/repositories?q=${criteria}`).subscribe((list) => {
         this.repositoryItems = list;
     });
   }
