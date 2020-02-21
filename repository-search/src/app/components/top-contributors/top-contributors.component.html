@@ -1,0 +1,14 @@
+<p>Top Contributors for {{ repoCriteria }}</p>
+<div style="padding: 13px;">
+    <mat-spinner *ngIf="topContributorItems.length === 0"></mat-spinner>
+
+    <mat-card *ngFor="let contributor of topContributorItems" style="margin-top:10px;">
+        <mat-card-header>
+            <img style="height:100%; width: 100%;" src="{{ contributor.avatar_url }}" />
+            <mat-card-title>
+                <a target="_blank" href="{{contributor.html_url}}">{{contributor.login}}</a></mat-card-title>
+            <mat-card-subtitle>{{ contributor.contributions }} Contributions
+            </mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+</div>
