@@ -1,22 +1,32 @@
-<p>Repository Search</p>
-<input ng-model="searchCriteria" placeholder="Search GitHub"/>
-<button (click)="search()">Go!</button>
+<h1>Repository Search</h1>
+<input [(ngModel)]="searchCriteria" placeholder="Search Github" type="search" />
+<button (click)="isLoading = true;search();" mat-stroked-button mat-flat-button>Go!</button>
+
 <div style="padding: 13px;">
-    <mat-spinner *ngIf="repositoryItems.length === 0"></mat-spinner>
+    <p *ngIf="repositoryItems.length === 0 && !isLoading">No records to show</p>
+    <mat-spinner *ngIf="isLoading">
+    </mat-spinner>
 
     <mat-card *ngFor="let repository of repositoryItems" style="margin-top:10px;">
         <mat-card-header>
-            <mat-card-title>{{repository.name}}</mat-card-title>
+            <mat-card-title>{{ repository.name }}</mat-card-title>
             <mat-card-subtitle>{{ repository.language }}
             </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <p>
-                {{repository.description}}
+                {{ repository.description }}
             </p>
         </mat-card-content>
         <mat-card-actions>
-      <a [routerLink] = "['/topcontributors', repository.full_name]" mat-button>Top Contributors</a>
-    </mat-card-actions>
+            <a [routerLink]="['/topcontributors', repository.full_name]" mat-raised-button>Top Contributors</a>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-icon class="mat-icon-rtl-mirror" style="position: left;">star</mat-icon>
+            <span>{{ repository.stargazers_count }}</span>
+
+            <mat-icon class="mat-icon-rtl-mirror" style="position: right;">warning</mat-icon>
+            <span>{{ repository.open_issues_count }}</span>
+        </mat-card-footer>
     </mat-card>
 </div>

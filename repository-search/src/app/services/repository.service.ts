@@ -10,19 +10,16 @@ import { environment } from 'src/environments/environment';
 export class RepositoryService {
   public repositoryItems: RepositoryModel[] = [];
   public topContributors: ContributorModel[] = [];
-  // @Output() criteria: EventEmitter<string> = new EventEmitter();
+
   constructor(private httpClient: HttpClient) {
 
   }
-  public search(criteria: string): void {
-      this.httpClient.get<RepositoryModel[]>(`${environment.apiUrl}/search/repositories?q=${criteria}`).subscribe((list) => {
-        this.repositoryItems = list;
-    });
+  public search(criteria: string) {
+    // console.log(criteria);
+     return this.httpClient.get(`${environment.apiUrl}/search/repositories?q=${criteria}`);
   }
-  public getTopContributors(repo: string): void {
+  public getTopContributors(repo: string) {
 
-     this.httpClient.get<ContributorModel[]>(`${environment.apiUrl}/repos/${repo}/contributors`).subscribe((list) => {
-        this.topContributors = list;
-    });
+     return this.httpClient.get(`${environment.apiUrl}/repos/${repo}/contributors`);
   }
 }
