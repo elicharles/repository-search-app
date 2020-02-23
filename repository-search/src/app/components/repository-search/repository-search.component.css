@@ -1,0 +1,17 @@
+.card-container {
+    /*  not needed styles to reflect it */ 
+    /* background: blue;
+    padding: 10px;
+    color: white;
+    width: auto;
+   */
+    /* needed styles below */
+    display: flex;
+    justify-content: space-evenly;
+    /* flex: 1 1 auto; */
+    
+  }
+
+  .card-container span {
+      padding-right: 40% !important;
+  }

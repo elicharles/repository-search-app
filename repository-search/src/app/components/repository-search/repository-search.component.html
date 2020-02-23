@@ -7,7 +7,7 @@
     <mat-spinner *ngIf="isLoading">
     </mat-spinner>
 
-    <mat-card *ngFor="let repository of repositoryItems" style="margin-top:10px;">
+    <mat-card *ngFor="let repository of repositoryItems.slice(0, pageRecords)" style="margin-top:10px;">
         <mat-card-header>
             <mat-card-title>{{ repository.name }}</mat-card-title>
             <mat-card-subtitle>{{ repository.language }}
@@ -22,11 +22,17 @@
             <a [routerLink]="['/topcontributors', repository.full_name]" mat-raised-button>Top Contributors</a>
         </mat-card-actions>
         <mat-card-footer>
-            <mat-icon class="mat-icon-rtl-mirror" style="position: left;">star</mat-icon>
-            <span>{{ repository.stargazers_count }}</span>
-
-            <mat-icon class="mat-icon-rtl-mirror" style="position: right;">warning</mat-icon>
-            <span>{{ repository.open_issues_count }}</span>
+            <div class="card-container">
+                <mat-icon>star</mat-icon>
+                <span>{{ repository.stargazers_count }}
+                </span>
+                <mat-icon>warning</mat-icon>
+                <span>{{ repository.open_issues_count }}
+                </span>
+            </div>
         </mat-card-footer>
     </mat-card>
+    <button *ngIf="repositoryItems.length > pageRecords" (click)="loadMore()" mat-button>
+        Load More
+    </button>
 </div>

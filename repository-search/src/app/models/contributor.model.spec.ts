@@ -1,7 +1,7 @@
-import { Contributor.Model } from './contributor.model';
+import { ContributorModel } from './contributor.model';
 
 describe('Contributor.Model', () => {
   it('should create an instance', () => {
-    expect(new Contributor.Model()).toBeTruthy();
+    expect(new ContributorModel()).toBeTruthy();
   });
 });

@@ -16,10 +16,10 @@ export class RepositoryService {
   }
   public search(criteria: string) {
     // console.log(criteria);
-     return this.httpClient.get(`${environment.apiUrl}/search/repositories?q=${criteria}`);
+    return this.httpClient.get(`${environment.apiUrl}/search/repositories?q=${criteria}`);
   }
   public getTopContributors(repo: string) {
 
-     return this.httpClient.get(`${environment.apiUrl}/repos/${repo}/contributors`);
+    return this.httpClient.get(`${environment.apiUrl}/repos/${repo}/contributors`);
   }
 }

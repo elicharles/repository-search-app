@@ -1,7 +1,7 @@
-import { Repository.Model } from './repository.model';
+import { RepositoryModel } from './repository.model';
 
 describe('Repository.Model', () => {
   it('should create an instance', () => {
-    expect(new Repository.Model()).toBeTruthy();
+    expect(new RepositoryModel()).toBeTruthy();
   });
 });
